@@ -1,0 +1,11 @@
+build/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.elf
+*.bin
+*.wasm
+*.vcd
+.env
+.env.*

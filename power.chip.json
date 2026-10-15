@@ -1,0 +1,1 @@
+{"name":"Battery + buck · ideal 5V rail","author":"Meshmerize simulation","pins":["EN","GND","OUT5V"],"controls":[{"id":"enabled","label":"Supply enabled (ideal regulated 5V)","type":"range","min":0,"max":1,"step":1}]}

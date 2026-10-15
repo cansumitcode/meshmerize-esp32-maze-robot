@@ -1,0 +1,407 @@
+{
+  "version": 1,
+  "author": "Meshmerize project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "left": 40,
+      "top": 20,
+      "attrs": {}
+    },
+    {
+      "type": "chip-ir8",
+      "id": "ir",
+      "left": -300,
+      "top": 20,
+      "attrs": {
+        "mode": "1",
+        "mask": "24"
+      }
+    },
+    {
+      "type": "chip-tb6612",
+      "id": "driver",
+      "left": 290,
+      "top": 10,
+      "attrs": {}
+    },
+    {
+      "type": "chip-n20",
+      "id": "leftMotor",
+      "left": 540,
+      "top": -50,
+      "attrs": {
+        "reverse": "0"
+      }
+    },
+    {
+      "type": "chip-n20",
+      "id": "rightMotor",
+      "left": 540,
+      "top": 210,
+      "attrs": {
+        "reverse": "1"
+      }
+    },
+    {
+      "type": "chip-power",
+      "id": "supply",
+      "left": -290,
+      "top": 300,
+      "attrs": {
+        "enabled": "1"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "powerSwitch",
+      "left": -80,
+      "top": 330,
+      "attrs": {
+        "value": "1",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "start",
+      "left": 30,
+      "top": 340,
+      "attrs": {
+        "color": "green",
+        "label": "START / STOP",
+        "key": "S",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "cal",
+      "left": 150,
+      "top": 340,
+      "attrs": {
+        "color": "blue",
+        "label": "CALIBRATE",
+        "key": "C",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "finish",
+      "left": 310,
+      "top": 340,
+      "attrs": {
+        "color": "red",
+        "label": "GOAL GPIO27"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rLed",
+      "left": 270,
+      "top": 400,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "title",
+      "left": -300,
+      "top": -110,
+      "attrs": {
+        "text": "MESHMERIZE | ESP32 + TB6612 + 2 N20 + digital IR8",
+        "fontSize": "20"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "help",
+      "left": -300,
+      "top": -70,
+      "attrs": {
+        "text": "Play > C (CAL) > S (START). Demo ends at GOAL. S again = emergency stop.",
+        "fontSize": "14"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "leftLabel",
+      "left": 530,
+      "top": -80,
+      "attrs": {
+        "text": "LEFT N20 (6V rated)",
+        "fontSize": "14"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "rightLabel",
+      "left": 530,
+      "top": 175,
+      "attrs": {
+        "text": "RIGHT N20 (mirrored)",
+        "fontSize": "14"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "note",
+      "left": -300,
+      "top": 490,
+      "attrs": {
+        "text": "Custom behavioral components. IR inputs are scripted/manual, not a physical maze.\nSupply is ideal 5V; no battery/load physics. Motor display = normalized speed, not RPM.\nTRIG wire is a simulation-only probe of STBY. Click IR chip to select test mode.",
+        "fontSize": "13"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "ir:D1",
+      "esp:VP",
+      "green",
+      []
+    ],
+    [
+      "ir:D2",
+      "esp:VN",
+      "green",
+      []
+    ],
+    [
+      "ir:D3",
+      "esp:D34",
+      "green",
+      []
+    ],
+    [
+      "ir:D4",
+      "esp:D35",
+      "green",
+      []
+    ],
+    [
+      "ir:D5",
+      "esp:D32",
+      "green",
+      []
+    ],
+    [
+      "ir:D6",
+      "esp:D33",
+      "green",
+      []
+    ],
+    [
+      "ir:D7",
+      "esp:D25",
+      "green",
+      []
+    ],
+    [
+      "ir:D8",
+      "esp:D26",
+      "green",
+      []
+    ],
+    [
+      "esp:RX2",
+      "driver:AIN1",
+      "blue",
+      []
+    ],
+    [
+      "esp:TX2",
+      "driver:AIN2",
+      "blue",
+      []
+    ],
+    [
+      "esp:D18",
+      "driver:PWMA",
+      "blue",
+      []
+    ],
+    [
+      "esp:D19",
+      "driver:BIN1",
+      "blue",
+      []
+    ],
+    [
+      "esp:D21",
+      "driver:BIN2",
+      "blue",
+      []
+    ],
+    [
+      "esp:D22",
+      "driver:PWMB",
+      "blue",
+      []
+    ],
+    [
+      "esp:D23",
+      "driver:STBY",
+      "blue",
+      []
+    ],
+    [
+      "driver:AO1",
+      "leftMotor:M1",
+      "orange",
+      []
+    ],
+    [
+      "driver:AO2",
+      "leftMotor:M2",
+      "orange",
+      []
+    ],
+    [
+      "driver:BO1",
+      "rightMotor:M1",
+      "purple",
+      []
+    ],
+    [
+      "driver:BO2",
+      "rightMotor:M2",
+      "purple",
+      []
+    ],
+    [
+      "esp:3V3",
+      "ir:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:3V3",
+      "ir:IR",
+      "red",
+      []
+    ],
+    [
+      "esp:3V3",
+      "driver:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "ir:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "driver:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "supply:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:3V3",
+      "powerSwitch:3",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "powerSwitch:1",
+      "black",
+      []
+    ],
+    [
+      "powerSwitch:2",
+      "supply:EN",
+      "red",
+      []
+    ],
+    [
+      "supply:OUT5V",
+      "driver:VM",
+      "red",
+      []
+    ],
+    [
+      "supply:OUT5V",
+      "esp:VIN",
+      "red",
+      []
+    ],
+    [
+      "esp:D23",
+      "ir:TRIG",
+      "gray",
+      []
+    ],
+    [
+      "esp:D13",
+      "start:1.l",
+      "green",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "start:2.l",
+      "black",
+      []
+    ],
+    [
+      "esp:D14",
+      "cal:1.l",
+      "green",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "cal:2.l",
+      "black",
+      []
+    ],
+    [
+      "esp:D27",
+      "rLed:1",
+      "green",
+      []
+    ],
+    [
+      "rLed:2",
+      "finish:A",
+      "green",
+      []
+    ],
+    [
+      "finish:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf"
+  }
+}
