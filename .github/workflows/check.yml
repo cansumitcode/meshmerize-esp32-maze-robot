@@ -1,0 +1,19 @@
+name: Firmware and wiring checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Wokwi circuit
+        run: python3 tests/validate_project.py
+      - name: Build host firmware harness
+        run: |
+          mkdir -p build
+          g++ -std=c++14 -Wall -Wextra -Wno-unused-parameter -I tests/stubs tests/firmware_test.cpp -o build/firmware-test
+      - name: Run controller regression scenarios
+        run: ./build/firmware-test
