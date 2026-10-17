@@ -1,0 +1,17 @@
+PASS idle motor inhibition
+PASS active-high calibration
+PASS active-low calibration
+PASS invalid calibration inhibits start
+PASS centered line and mirrored right motor
+PASS right-offset steering
+PASS left-offset steering
+PASS goal requires continuous 1000 ms
+PASS seven-white sample cancels goal
+PASS right-first junction choice
+PASS transient line loss recovers without U-turn
+PASS persistent loss triggers delayed U-turn
+PASS turn requires leaving old line
+PASS turn timeout retries once then halts
+PASS serial emergency stop
+PASS finished state cannot restart
+16/16 firmware checks passed
