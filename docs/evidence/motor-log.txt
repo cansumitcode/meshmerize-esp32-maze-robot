@@ -1,0 +1,22 @@
+chip-ir8
+ IR array: 0x18 at 0.00s
+chip-n20
+ N20 LEFT drive=+0% (normalized, not RPM)
+chip-n20
+ N20 RIGHT drive=-0% (normalized, not RPM)
+chip-n20
+ N20 LEFT drive=+0% (normalized, not RPM)
+chip-n20
+ N20 RIGHT drive=-0% (normalized, not RPM)
+chip-n20
+ N20 LEFT drive=+0% (normalized, not RPM)
+chip-n20
+ N20 RIGHT drive=-0% (normalized, not RPM)
+chip-ir8
+ IR array: 0x0C at 1.00s
+chip-ir8
+ IR array: 0x30 at 1.50s
+chip-n20
+ N20 LEFT drive=+0% (normalized, not RPM)
+chip-n20
+ N20 RIGHT drive=-0% (normalized, not RPM)
